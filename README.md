@@ -1,4 +1,8 @@
-# Project Title
+# Shopping-Cart
+
+## What is missing?
+
+At this point there is no remove products from cart API, and I didn't yet implement Spring Security to deal with authorization and different user types(common/vip)
 
 ## Challenge
 
