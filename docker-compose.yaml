@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: Shopping-Cart
+    depends_on:
+      - db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=dockerpassword
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/shoppingcart
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=dockerpassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - "8080:8080"
+
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=dockerpassword
+      - POSTGRES_DB=shoppingcart
+    ports:
+      - "5432:5432"
